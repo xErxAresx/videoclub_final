@@ -112,7 +112,11 @@ class CatalogController extends Controller
     public function postCreateR(Request $request, $id)
     {
         $user = auth()->user();
-
+        $validatedData = $request->validate([
+            'title' => 'required',
+            'stars' => 'required',
+            'review' => 'required',
+        ]);
         $review=new Review();
         $review->title= $request->input('title');
         $review->stars= $request->input('stars');
