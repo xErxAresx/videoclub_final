@@ -59,7 +59,10 @@ class LoginTest extends DuskTestCase
             ->type('synopsis', 'Dusk synopsis')
             ->select('category', 'drama')
             ->press('Añadir película')
-            ->pause(2500);
+            
+            //Tancar sessió
+            ->pause(2500)
+            ->press('Cerrar sesión');
         });
     }
 }
